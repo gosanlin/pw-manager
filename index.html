@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gestor de Contraseñas</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <header class="app-header">
+      <div>
+        <h1>Gestor de Contraseñas</h1>
+        <p>Guarda, genera y organiza contraseñas seguras en tu navegador.</p>
+      </div>
+      <button id="themeToggle" class="btn-secondary">Modo oscuro</button>
+    </header>
+
+    <main>
+      <section class="panel">
+        <h2>Generador de Contraseñas</h2>
+        <div class="form-grid">
+          <label>
+            Longitud
+            <input type="number" id="length" min="8" max="32" value="16" />
+          </label>
+          <label>
+            Incluir mayúsculas
+            <input type="checkbox" id="uppercase" checked />
+          </label>
+          <label>
+            Incluir minúsculas
+            <input type="checkbox" id="lowercase" checked />
+          </label>
+          <label>
+            Incluir números
+            <input type="checkbox" id="numbers" checked />
+          </label>
+          <label>
+            Incluir símbolos
+            <input type="checkbox" id="symbols" checked />
+          </label>
+        </div>
+
+        <div class="generator-actions">
+          <button id="generateBtn" class="btn-primary">Generar contraseña</button>
+          <button id="copyGeneratedBtn" class="btn-secondary">Copiar</button>
+        </div>
+
+        <div class="output-card">
+          <input type="text" id="generatedPassword" readonly placeholder="Tu contraseña generada aparecerá aquí" />
+        </div>
+      </section>
+
+      <section class="panel">
+        <h2>Guardar contraseña</h2>
+        <form id="saveForm" class="save-form">
+          <label>
+            Nombre de la entrada
+            <input type="text" id="entryName" required placeholder="Ej. Correo, Banco, App" />
+          </label>
+          <label>
+            Usuario / Email
+            <input type="text" id="entryUser" placeholder="usuario@example.com" />
+          </label>
+          <label>
+            Contraseña
+            <div class="password-field">
+              <input type="password" id="entryPassword" required placeholder="Escribe o pega una contraseña" />
+              <button type="button" id="togglePasswordVisibility" class="icon-btn" aria-label="Mostrar contraseña">👁</button>
+            </div>
+          </label>
+          <div class="form-actions">
+            <button type="submit" class="btn-primary">Guardar entrada</button>
+            <button type="button" id="fillGeneratedBtn" class="btn-secondary">Usar generada</button>
+          </div>
+        </form>
+      </section>
+
+      <section class="panel">
+        <div class="panel-header">
+          <h2>Contraseñas guardadas</h2>
+          <input type="search" id="searchInput" placeholder="Buscar por nombre o usuario" />
+        </div>
+        <div id="entriesList" class="entries-list"></div>
+      </section>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

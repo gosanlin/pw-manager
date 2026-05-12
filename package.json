@@ -1,0 +1,33 @@
+{
+  "name": "pw-manager",
+  "productName": "PW Manager",
+  "version": "1.0.0",
+  "description": "Aplicación de escritorio para gestionar contraseñas seguras en Windows.",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder --win --x64",
+    "package": "electron-packager . \"PW Manager\" --out=dist --overwrite --platform=win32 --arch=x64 --icon=logo.ico --quiet"
+  },
+  "author": "Daniel",
+  "build": {
+    "appId": "com.pwmanager.desktop",
+    "files": [
+      "**/*",
+      "!node_modules/**/*",
+      "!dist/**/*"
+    ],
+    "win": {
+      "icon": "logo.ico",
+      "target": [
+        "nsis",
+        "portable"
+      ]
+    }
+  },
+  "devDependencies": {
+    "electron": "^26.2.0",
+    "electron-builder": "^24.6.0",
+    "electron-packager": "^17.1.2"
+  }
+}
